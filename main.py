@@ -66,12 +66,10 @@ class Node:
     def best_node(self):
         gini_values = self.check_nodes()
         values = [item[2] for item in gini_values]
-        node_gini = Node.gini_impurity(*self.target.value_counts().tolist())
 
-        if node_gini > np.min(values):
-            best_feature = gini_values[np.argmin(values)][0]
-            best_combination = gini_values[np.argmin(values)][1]
-            print(f"Best node {best_feature} and yes/no decision {best_combination[0]}")
+        best_feature = gini_values[np.argmin(values)][0]
+        best_combination = gini_values[np.argmin(values)][1]
+        print(f"Best node {best_feature} and yes/no decision {best_combination[0]}")
 
 
 titanic = pd.read_csv("train.csv")
